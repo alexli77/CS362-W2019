@@ -12,24 +12,24 @@ int main()
     int a;
     int k[10] = { adventurer, gardens, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy };
     
-    initializeGame(2, k, 2, &state);
+    initializeGame(2, k, 1, &state);
 
     state.numBuys = 0;
 
     a = buyCard(10, &state);
 
-    ASSERT(a == -1,"Correctly denied a buy when there are no buys.");
+    ASSERT(a == -1," no buys.");
 
     state.numBuys = 10;
 
     state.coins = 0;
 
-    ASSERT(s == -1,"Correctly denied a buy when there way not enough coins.");
+    ASSERT(s == -1," not enough coins.");
 
-    state.coins = 100;
+    state.coins = 50;
 
-    ASSERT(s == 0,"Correctly bought card when there was enough buys and coins.");
+    ASSERT(s == 0,"enough buys and coins.");
 
-    printf("UNIT TEST 3 WAS SUCCESSFUL\n");
+ 
     return 0;
 } 
