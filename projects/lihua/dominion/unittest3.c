@@ -10,7 +10,7 @@ int main()
 {
 	struct gameState G;
 	int k[10] = { adventurer, gardens, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy };
-	int a = initializeGame(2, k, 3, &G);
+	int a = initializeGame(2, k, 1, &G);
 	
 
 	int j = isGameOver(&G);
