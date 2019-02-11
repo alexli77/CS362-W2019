@@ -9,6 +9,9 @@
 int main ()	
 {
     struct gameState G;
+    int k[10] = {adventurer, council_room, feast, gardens, mine, remodel, smithy, village, baron, great_hall};
+    
+    initializeGame(2, k, 1, &G);
 
    for (i = 0; i < 5; i++){
       G.whoseTurn = turn;
