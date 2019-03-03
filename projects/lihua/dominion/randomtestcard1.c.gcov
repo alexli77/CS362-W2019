@@ -1,0 +1,63 @@
+        -:    0:Source:randomtestcard1.c
+        -:    0:Graph:randomtestcard1.gcno
+        -:    0:Data:randomtestcard1.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdlib.h>
+        -:    2:#include <stdio.h>
+        -:    3:#include <math.h>
+        -:    4:#include "dominion.h"
+        -:    5:#include "dominion_helpers.h"
+        -:    6:#include "rngs.h"
+        -:    7:
+function main called 1 returned 100% blocks executed 95%
+        1:    8:int main (int argc, char** argv) {
+        1:    9:        int kingdom[10] = {adventurer, gardens, great_hall, village, council_room, mine, cutpurse, sea_hag, tribute, smithy};
+        1:   10:        int testSuccessful = 0, testFailed = 0,i, tests = 50000;//sets number of tests, testSuccessful = successful, testFailed = not successful
+        -:   11:
+    50001:   12:        for(i = 0; i < tests; i++) {
+branch  0 taken 99%
+branch  1 taken 1% (fallthrough)
+        -:   13:
+    50000:   14:                int num_players = rand() % 4, player = 0, rand_seed = rand();//set player, #players, and random seed
+call    0 returned 100%
+call    1 returned 100%
+    50000:   15:                struct gameState *g = malloc(sizeof(struct gameState));//make gamestate
+    50000:   16:                initializeGame(num_players, kingdom, rand_seed, g);//Initialize the game with values above
+call    0 returned 100%
+        -:   17:
+    50000:   18:                g->deckCount[player] = rand() % MAX_DECK;//randomize deck size
+call    0 returned 100%
+    50000:   19:                g->discardCount[player] = rand() % MAX_DECK;//randomize discard size
+call    0 returned 100%
+    50000:   20:                int pastHandCount = g->handCount[player] = rand() % MAX_HAND;//randomize hand size
+call    0 returned 100%
+    50000:   21:                int opponentHandCount = g->handCount[1] = rand() % MAX_HAND;//randomize opponents hand size
+call    0 returned 100%
+    50000:   22:                int pastNumActions = g->numActions; 
+        -:   23:
+    50000:   24:                cardEffect(great_hall, 1, 1, 1, g, 0, 0);//play the card
+call    0 returned 100%
+        -:   25:
+    50000:   26:                if (pastHandCount  == g->handCount[player] && pastNumActions + 1  == g->numActions && opponentHandCount  == g->handCount[1]){//check if correct number of cards were added to hand of both player/opponent and buys was increased by 1.
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0%
+    50000:   27:                        testSuccessful++;
+        -:   28:                }
+        -:   29:                else
+    #####:   30:                        testFailed++;
+        -:   31:
+    50000:   32:                free(g);
+        -:   33:            
+        -:   34:        }
+        1:   35:        printf("Random Test 3: Great Hall Card");
+call    0 returned 100%
+        1:   36:        printf("\nThere were %d successful council room card plays, and %d failures [out of %d games]\n\n", testSuccessful, testFailed, tests);
+call    0 returned 100%
+        -:   37:
+        1:   38:        return 0;
+        -:   39:}
