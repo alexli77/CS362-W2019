@@ -1,21 +1,4 @@
-Skip to content
- 
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- @alexli77 Sign out
-1
-1 162 michaelslewis/CS362
-forked from apaiz1/CS362-004-W2018
- Code  Pull requests 0  Projects 0  Wiki  Insights
-CS362/projects/lewismic/dominion/Makefile
-12b6804  on Feb 4, 2018
- Michael Lewis Modified header info for unit and card tests and ecommitted after mak…
-     
-86 lines (63 sloc)  3.29 KB
 CFLAGS = -Wall -fpic -coverage -lm
 
 rngs.o: rngs.h rngs.c
