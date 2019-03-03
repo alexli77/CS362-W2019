@@ -1,0 +1,170 @@
+        -:    0:Source:randomtestcard1.c
+        -:    0:Graph:randomtestcard1.gcno
+        -:    0:Data:randomtestcard1.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "dominion.h"
+        -:    2:#include "dominion_helpers.h"
+        -:    3:#include "rngs.h"
+        -:    4:#include <string.h>
+        -:    5:#include <stdio.h>
+        -:    6:#include <math.h>
+        -:    7:#include <stdlib.h>
+        -:    8:#include <assert.h>
+        -:    9:
+        1:   10:void testGetCost()
+        -:   11:{
+        1:   12:	printf("\n----------Start Testing getCost()----------\n");
+        -:   13:
+        -:   14:
+        1:   15:	if(getCost(curse) == 0)
+        1:   16:		printf("getCost(): PASS when testing returning cost %d for Curse.\n", getCost(curse));
+        -:   17:	else
+    #####:   18:		printf("getCost(): FAIL when testing returning cost %d for Curse.\n", getCost(curse));
+        -:   19:	
+        1:   20:	if(getCost(estate) == 2)
+        1:   21:		printf("getCost(): PASS when testing returning cost %d for Estate.\n", getCost(estate));
+        -:   22:	else
+    #####:   23:		printf("getCost(): FAIL when testing returning cost %d for Estate.\n", getCost(estate));
+        -:   24:	
+        1:   25:	if(getCost(duchy) == 5)
+        1:   26:		printf("getCost(): PASS when testing returning cost %d for Duchy.\n", getCost(duchy));
+        -:   27:	else
+    #####:   28:		printf("getCost(): FAIL when testing returning cost %d for Duchy.\n", getCost(duchy));
+        -:   29:	
+        1:   30:	if(getCost(province) == 8)
+        1:   31:		printf("getCost(): PASS when testing returning cost %d for Province.\n", getCost(province));
+        -:   32:	else
+    #####:   33:		printf("getCost(): FAIL when testing returning cost %d for Province.\n", getCost(province));
+        -:   34:	
+        1:   35:	if(getCost(copper) == 0)
+        1:   36:		printf("getCost(): PASS when testing returning cost %d for Copper.\n", getCost(copper));
+        -:   37:	else
+    #####:   38:		printf("getCost(): FAIL when testing returning cost %d for Copper.\n", getCost(copper));
+        -:   39:	
+        1:   40:	if(getCost(silver) == 3)
+        1:   41:		printf("getCost(): PASS when testing returning cost %d for Silver.\n", getCost(silver));
+        -:   42:	else
+    #####:   43:		printf("getCost(): FAIL when testing returning cost %d for Silver.\n", getCost(silver));
+        -:   44:	
+        1:   45:	if(getCost(gold) == 6)
+        1:   46:		printf("getCost(): PASS when testing returning cost %d for Gold.\n", getCost(gold));
+        -:   47:	else
+    #####:   48:		printf("getCost(): FAIL when testing returning cost %d for Gold.\n", getCost(gold));
+        -:   49:	
+        1:   50:	if(getCost(adventurer) == 6)
+        1:   51:		printf("getCost(): PASS when testing returning cost %d for Adventurer.\n", getCost(adventurer));
+        -:   52:	else
+    #####:   53:		printf("getCost(): FAIL when testing returning cost %d for Adventurer.\n", getCost(adventurer));
+        -:   54:	
+        1:   55:	if(getCost(council_room) == 5)
+        1:   56:		printf("getCost(): PASS when testing returning cost %d for Council Room.\n", getCost(council_room));
+        -:   57:	else
+    #####:   58:		printf("getCost(): FAIL when testing returning cost %d for Council Room.\n", getCost(council_room));
+        -:   59:	
+        1:   60:	if(getCost(feast) == 4)
+        1:   61:		printf("getCost(): PASS when testing returning cost %d for Feast.\n", getCost(feast));
+        -:   62:	else
+    #####:   63:		printf("getCost(): FAIL when testing returning cost %d for Feast.\n", getCost(feast));
+        -:   64:	
+        1:   65:	if(getCost(gardens) == 4)
+        1:   66:		printf("getCost(): PASS when testing returning cost %d for Gardens.\n", getCost(gardens));
+        -:   67:	else
+    #####:   68:		printf("getCost(): FAIL when testing returning cost %d for Gardens.\n", getCost(gardens));
+        -:   69:	
+        1:   70:	if(getCost(mine) == 5)
+        1:   71:		printf("getCost(): PASS when testing returning cost %d for Mine.\n", getCost(mine));
+        -:   72:	else
+    #####:   73:		printf("getCost(): FAIL when testing returning cost %d for Mine.\n", getCost(mine));
+        -:   74:	
+        1:   75:	if(getCost(remodel) == 4)
+        1:   76:		printf("getCost(): PASS when testing returning cost %d for Remodel.\n", getCost(remodel));
+        -:   77:	else
+    #####:   78:		printf("getCost(): FAIL when testing returning cost %d for Remodel.\n", getCost(remodel));
+        -:   79:	
+        1:   80:	if(getCost(smithy) == 4)
+        1:   81:		printf("getCost(): PASS when testing returning cost %d for Smithy.\n", getCost(smithy));
+        -:   82:	else
+    #####:   83:		printf("getCost(): FAIL when testing returning cost %d for Smithy.\n", getCost(smithy));
+        -:   84:	
+        1:   85:	if(getCost(village) == 3)
+        1:   86:		printf("getCost(): PASS when testing returning cost %d for Village.\n", getCost(village));
+        -:   87:	else
+    #####:   88:		printf("getCost(): FAIL when testing returning cost %d for Village.\n", getCost(village));
+        -:   89:	
+        1:   90:	if(getCost(baron) == 4)
+        1:   91:		printf("getCost(): PASS when testing returning cost %d for Baron.\n", getCost(baron));
+        -:   92:	else
+    #####:   93:		printf("getCost(): FAIL when testing returning cost %d for Baron.\n", getCost(baron));
+        -:   94:	
+        1:   95:	if(getCost(great_hall) == 3)
+        1:   96:		printf("getCost(): PASS when testing returning cost %d for Great Hall.\n", getCost(great_hall));
+        -:   97:	else
+    #####:   98:		printf("getCost(): FAIL when testing returning cost %d for Great Hall.\n", getCost(great_hall));
+        -:   99:	
+        1:  100:	if(getCost(minion) == 5)
+        1:  101:		printf("getCost(): PASS when testing returning cost %d for Minion.\n", getCost(minion));
+        -:  102:	else
+    #####:  103:		printf("getCost(): FAIL when testing returning cost %d for Minion.\n", getCost(minion));
+        -:  104:	
+        1:  105:	if(getCost(steward) == 3)
+        1:  106:		printf("getCost(): PASS when testing returning cost %d for Steward.\n", getCost(steward));
+        -:  107:	else
+    #####:  108:		printf("getCost(): FAIL when testing returning cost %d for Steward.\n", getCost(steward));
+        -:  109:
+        -:  110:	
+        1:  111:	if(getCost(ambassador) == 3)
+        1:  112:		printf("getCost(): PASS when testing returning cost %d for Ambassador.\n", getCost(ambassador));
+        -:  113:	else
+    #####:  114:		printf("getCost(): FAIL when testing returning cost %d for Ambassador.\n", getCost(ambassador));
+        -:  115:	
+        1:  116:	if(getCost(cutpurse) == 4)
+        1:  117:		printf("getCost(): PASS when testing returning cost %d for Cutpurse.\n", getCost(cutpurse));
+        -:  118:	else
+    #####:  119:		printf("getCost(): FAIL when testing returning cost %d for Cutpurse.\n", getCost(cutpurse));
+        1:  120:	if(getCost(30) == -1)
+        1:  121:		printf("getCost(): PASS when testing returning cost %d for wrong card name.\n", getCost(30));
+        -:  122:	else
+    #####:  123:		printf("getCost(): FAIL when testing returning cost %d for wrong card name.\n", getCost(30));
+        1:  124:	if(getCost(embargo) == 2)
+        1:  125:		printf("getCost(): PASS when testing returning cost %d for Embargo.\n", getCost(embargo));
+        -:  126:	else
+    #####:  127:		printf("getCost(): FAIL when testing returning cost %d for Embargo.\n", getCost(embargo));
+        -:  128:	
+        1:  129:	if(getCost(outpost) == 5)
+        1:  130:		printf("getCost(): PASS when testing returning cost %d for Outpost.\n", getCost(outpost));
+        -:  131:	else
+    #####:  132:		printf("getCost(): FAIL when testing returning cost %d for Outpost.\n", getCost(outpost));
+        -:  133:	
+        1:  134:	if(getCost(salvager) == 4)
+        1:  135:		printf("getCost(): PASS when testing returning cost %d for Salvager.\n", getCost(salvager));
+        -:  136:	else
+    #####:  137:		printf("getCost(): FAIL when testing returning cost %d for Salvager.\n", getCost(salvager));
+        -:  138:	
+        1:  139:	if(getCost(sea_hag) == 4)
+        1:  140:		printf("getCost(): PASS when testing returning cost %d for Sea Hag.\n", getCost(sea_hag));
+        -:  141:	else
+    #####:  142:		printf("getCost(): FAIL when testing returning cost %d for Sea Hag.\n", getCost(sea_hag));
+        -:  143:	
+        1:  144:	if(getCost(treasure_map) == 4)
+        1:  145:		printf("getCost(): PASS when testing returning cost %d for Treasure Map.\n", getCost(treasure_map));
+        -:  146:	else
+    #####:  147:		printf("getCost(): FAIL when testing returning cost %d for Treasure Map.\n", getCost(treasure_map));
+        -:  148:	
+        -:  149:
+        -:  150:
+        1:  151:	printf("\n----------End Testing getCost()----------\n");
+        -:  152:
+        1:  153:}
+        -:  154:
+        1:  155:int main (int argc, char** argv) {
+        1:  156:        int kingdom[10] = {adventurer, gardens, embargo, village, council_room, mine, cutpurse, sea_hag, tribute, smithy};
+        1:  157:        int testSuccessful = 0, testFailed = 0,i, tests = 200;//sets number of tests, testSuccessful = successful, testFailed = not successful
+        -:  158:
+        1:  159:        for(i = 0; i < tests; i++) {
+        -:  160:
+        -:  161:
+        1:  162:    testGetCost();
+        2:  163:    return 0;
+        -:  164:}
+    #####:  165:}
