@@ -7,21 +7,26 @@
 
 int main (int argc, char** argv) {
         int kingdom[10] = {adventurer, gardens, great_hall, village, council_room, mine, cutpurse, sea_hag, tribute, smithy};
-        int testSuccessful = 0, testFailed = 0,i, tests = 50000;//sets number of tests, testSuccessful = successful, testFailed = not successful
+        int testSuccessful = 0, testFailed = 0,i, tests = 50000;
+//universal set up, from lecture. 
+        
+        for(i = 0; i < tests; i++) //start a loop
+        {
 
-        for(i = 0; i < tests; i++) {
+                int num_players = rand() % 5, player = 0, rand_seed = rand();
+                struct gameState *g = malloc(sizeof(struct gameState));//alloc the memory
+                
+                initializeGame(num_players, kingdom, rand_seed, g);//Initialize the game,check with dominion.c
 
-                int num_players = rand() % 4, player = 0, rand_seed = rand();//set player, #players, and random seed
-                struct gameState *g = malloc(sizeof(struct gameState));//make gamestate
-                initializeGame(num_players, kingdom, rand_seed, g);//Initialize the game with values above
+                g->deckCount[player] = rand() % MAX_DECK;
+                g->discardCount[player] = rand() % MAX_DECK;
+                int pastHandCount = g->handCount[player] = rand() % MAX_HAND;
+                int opponentHandCount = g->handCount[1] = rand() % MAX_HAND;//randomize
 
-                g->deckCount[player] = rand() % MAX_DECK;//randomize deck size
-                g->discardCount[player] = rand() % MAX_DECK;//randomize discard size
-                int pastHandCount = g->handCount[player] = rand() % MAX_HAND;//randomize hand size
-                int opponentHandCount = g->handCount[1] = rand() % MAX_HAND;//randomize opponents hand size
-                int pastNumActions = g->numActions; 
+	        int pastNumActions = g->numActions; 
 
-                cardEffect(village, 1, 1, 1, g, 0, 0);//play the card
+
+		                cardEffect(village, 1, 1, 1, g, 0, 0);//play the card
 
                 if (pastHandCount  == g->handCount[player] && pastNumActions + 1  == g->numActions && opponentHandCount  == g->handCount[2]){
                         testSuccessful++;
@@ -30,10 +35,8 @@ int main (int argc, char** argv) {
                         testFailed++;
 
                 free(g);
-            
-        }
-        printf("Random Test 3: Great Hall Card");
-        printf("\nThere were %d successful council room card plays, and %d failures [out of %d games]\n\n", testSuccessful, testFailed, tests);
+	
+	printf(testSuccessful, testFailed, tests);
 
-        return 0;
+	return 0;
 }
